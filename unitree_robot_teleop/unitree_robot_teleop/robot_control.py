@@ -1,11 +1,14 @@
 import rclpy
+from rclpy.node import Node
 import pinocchio as pin      
+from pinocchio import casadi as cpin    
+from pinocchio.visualize import MeshcatVisualizer   
 
 class RobotControl(Node):
     def __init__(self):
         super().__init__('robot_control_node')
-        self.robot = pin.RobotWrapper.BuildFromURDF('/home/rundong/avp_teleoperation/workspace/src/unitree_robot_description/urdf/g1/g1_body29_hand14.urdf', \
-                                                    '/home/rundong/avp_teleoperation/workspace/src/unitree_robot_description/urdf/g1/')
+        self.robot = pin.RobotWrapper.BuildFromURDF('/home/rundong/avp_teleoperation/workspace/src/unitree_ros2_teleop/unitree_robot_description/urdf/g1/g1_body29_hand14.urdf', \
+                                                    '/home/rundong/avp_teleoperation/workspace/src/unitree_ros2_teleop/unitree_robot_description/urdf/g1')
 
 def main(args=None):
     rclpy.init(args=args)
